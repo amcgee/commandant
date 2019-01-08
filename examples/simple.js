@@ -45,6 +45,7 @@ const hello = {
     reporter.print(`${greet}, ${name}!`);
   },
 };
+
 commandant.init({ 
   version: '0.1.0',
   description: 'An example CLI tool',
