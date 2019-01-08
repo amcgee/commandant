@@ -1,0 +1,10 @@
+{
+  "name": "commandant",
+  "version": "1.0.0",
+  "description": "Simple, advanced Node.js CLI engine",
+  "main": "src/index.js",
+  "repository": "https://github.com/amcgee/commandant.git",
+  "author": "Austin McGee",
+  "license": "MIT",
+  "private": true
+}
