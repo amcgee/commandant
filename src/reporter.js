@@ -56,7 +56,7 @@ const levels = [
 const shouldLog = (lvl) => (
     !lvl.verbose || config.verbose !== false // If config.verbose is still undefined we shouldn't suppress logs
   ) && (
-    !config.quiet || lvl.quiet !== true
+    !config.quiet || lvl.quiet === true
   );
 
 const write = (lvl = {}, msg, args) => {
