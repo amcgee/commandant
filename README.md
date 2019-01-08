@@ -71,3 +71,29 @@ commandant.init({
 
 commandant.parse(process.argv);
 ```
+
+Yeilds:
+
+```sh
+> ./examples/simple.js
+>>>   simple v0.1.0   <<<
+Usage: simple [options] [command]
+
+An example CLI tool
+
+Options:
+  --verbose                 Log all the things
+  --quiet                   Only print essential output
+  --rcfile <file>           Specify a custom JSON config file
+  --config <assignment>     Explicitly set a config value (i.e. cache=./d2cache)
+  -v, --version             output the version number
+  -h, --help                output usage information
+
+Commands:
+  hello|h [options] [name]
+> ./examples/simple.js hello --quiet
+Hello, world!
+> ./examples/simple.js hello --language fr people
+>>>   simple v0.1.0   <<<
+Bonjour, gens!
+```
