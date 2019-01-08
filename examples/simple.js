@@ -1,29 +1,48 @@
+#!/usr/bin/env node
+
 const commandant = require('../');
 const { reporter } = require("../");
 
-const translatedGreetings = {
-  'en': 'Hello',
-  'es': 'Hola',
-  'fr': 'Bonjour',
+const translations = {
+  'Hello': {
+    'en': 'Hello',
+    'es': 'Hola',
+    'fr': 'Bonjour',
+  },
+  'world': {
+    'en': 'world',
+    'es': 'el mundo',
+    'fr': 'le monde',
+  },
+  'people': {
+    'en': 'people',
+    'es': 'gente',
+    'fr': 'gens'
+  }
 };
+
+const translate = (word, language) => {
+  if (translations[word] && translations[word][language]) {
+    return translations[word][language];
+  }
+  return word;
+}
 
 const hello = {
   name: "hello [name]",
   alias: "h",
   options: [
     [
-      "--language -l <t>",
+      "--language <t>",
       "Specify the language",
       "en"
     ]
   ],
   run: ({ args, options } = {}) => {
-    const name = args[0] || 'World';
-    console.log(args);
-    let language = options.language;
-    const greet = translatedGreetings[language] || translatedGreetings['en'];
+    const greet = translate("Hello", options.language);
+    const name = translate(args[0] || 'world', options.language);
 
-    reporter.print(`${greet} ${name}`);
+    reporter.print(`${greet}, ${name}!`);
   },
 };
 commandant.init({ 
